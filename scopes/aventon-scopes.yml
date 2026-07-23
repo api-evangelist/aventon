@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.aventon.com/.well-known/openid-configuration
+docs: https://www.aventon.com/.well-known/oauth-authorization-server
+notes: >-
+  OAuth/OIDC scopes advertised by the Shopify Customer Account authorization
+  server on aventon.com. customer-account-mcp-api:full is the scope that unlocks
+  the agent/MCP commerce surface documented in /llms.txt.
+schemes:
+- name: shopifyCustomerAccountOIDC
+  source: well-known/aventon-openid-configuration.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://shopify.com/authentication/15202468/oauth/authorize
+    tokenUrl: https://shopify.com/authentication/15202468/oauth/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; returns an ID token identifying the customer.
+  flows: [authorizationCode]
+- scope: email
+  description: Access to the authenticated customer's email address.
+  flows: [authorizationCode]
+- scope: customer-account-api:full
+  description: Full access to the Shopify Customer Account API on behalf of the signed-in customer.
+  flows: [authorizationCode]
+- scope: customer-account-mcp-api:full
+  description: Full access to the Customer Account MCP API - the agent/MCP commerce surface.
+  flows: [authorizationCode]

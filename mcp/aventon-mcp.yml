@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://www.aventon.com/.well-known/ucp
+docs: https://www.aventon.com/llms.txt
+notes: >-
+  Aventon's storefront runs on Shopify, which natively exposes the Universal
+  Commerce Protocol (UCP, https://ucp.dev) for agent-driven commerce. The store
+  advertises a live MCP endpoint via /.well-known/ucp and /llms.txt. Tools are
+  the UCP shopping service surface; discover exact schemas at runtime via the
+  MCP tools/list method. Checkout requires contemporaneous human buyer approval.
+server:
+  name: aventon-ucp-shopping
+  transport: http
+  protocol: mcp
+  endpoint: https://aventonbikes.myshopify.com/api/ucp/mcp
+  public_alias: https://www.aventon.com/api/ucp/mcp
+  ucp_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+tools:
+- name: search_catalog
+  description: Find products matching the buyer's intent (UCP catalog.search).
+- name: create_cart
+  description: Create a cart and add desired items (UCP cart).
+- name: create_checkout
+  description: Start the purchase flow for the cart (UCP checkout).
+- name: update_checkout
+  description: Set shipping address and method on the checkout (UCP checkout/fulfillment).
+- name: complete_checkout
+  description: Finalize the purchase; buyer must approve payment (UCP checkout).
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.order

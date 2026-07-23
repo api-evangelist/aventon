@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.aventon.com/.well-known/openid-configuration
+notes: >-
+  Cross-cutting standards conformance derived from the live /.well-known/ discovery
+  surface on aventon.com (Shopify platform). No provider-published compliance
+  certifications (SOC 2 / ISO 27001 / PCI) were found on aventon.com itself, so no
+  Compliance pointer is asserted.
+standards:
+- id: openid-connect
+  conforms: true
+  evidence: /.well-known/openid-configuration present (Shopify Customer Account OIDC, issuer shopify.com/authentication/15202468)
+- id: oauth2
+  conforms: true
+  evidence: authorizationCode flow with PKCE (S256) advertised at authorization/token endpoints
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with valid AS metadata
+- id: ucp-universal-commerce-protocol
+  conforms: true
+  evidence: /.well-known/ucp advertises UCP 2026-04-08 shopping service + MCP transport (ucp.dev)
+- id: mcp-model-context-protocol
+  conforms: true
+  evidence: UCP shopping service exposes an MCP endpoint at /api/ucp/mcp
+- id: rfc9457-problem-details
+  conforms: false
+- id: fapi
+  conforms: false

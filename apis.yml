@@ -1,7 +1,29 @@
 aid: aventon
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/aventon.png
 name: Aventon
-description: 'Aventon is a company surfaced as a portfolio company of hongshan and added to the API Evangelist
-  network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Aventon is a consumer electric bicycle (e-bike) manufacturer headquartered in
+  Brea, California. Founded in 2012 and originally known for fixed-gear and track
+  bikes, the company pivoted to electric bikes and is now one of the larger
+  direct-to-consumer e-bike brands in the United States, with a lineup that spans
+  commuter, fat-tire, lightweight, folding, cargo, and mountain e-bikes sold
+  online and through a dealer network. Aventon operates no traditional public
+  developer API of its own, but its Shopify-powered storefront at aventon.com
+  natively exposes agent-facing commerce surfaces: a published /llms.txt, Shopify
+  Customer Account OpenID Connect discovery, and a live Universal Commerce
+  Protocol (UCP) MCP endpoint for agent-driven catalog search, cart, and checkout.
 url: https://raw.githubusercontent.com/api-evangelist/aventon/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,11 +33,30 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Consumer
-apis: []
+- Electric Bikes
+- E-Commerce
+- Retail
+- Agent Commerce
+- Shopify
+- Universal Commerce Protocol
+apis:
+- name: Aventon Agent Commerce (UCP / MCP)
+  description: >-
+    The agent-driven commerce surface exposed on the aventon.com Shopify storefront
+    via the Universal Commerce Protocol (ucp.dev). An MCP endpoint offers catalog
+    search, cart, checkout, discount, fulfillment, and order tools; checkout
+    requires contemporaneous human buyer approval.
+  humanURL: https://www.aventon.com/llms.txt
+  baseURL: https://www.aventon.com/api/ucp/mcp
+  properties:
+  - type: MCPServer
+    url: mcp/aventon-mcp.yml
+  - type: LLMsTxt
+    url: llms/aventon-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,3 +65,26 @@ maintainers:
 common:
 - type: Website
   url: https://aventon.com
+- type: PrivacyPolicy
+  url: https://www.aventon.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://www.aventon.com/policies/terms-of-service
+- type: MCPServer
+  url: mcp/aventon-mcp.yml
+- type: LLMsTxt
+  url: llms/aventon-llms.txt
+- type: WellKnown
+  url: well-known/aventon-well-known.yml
+- type: Authentication
+  url: authentication/aventon-authentication.yml
+- type: OAuthScopes
+  url: scopes/aventon-scopes.yml
+- type: Conformance
+  url: conformance/aventon-conformance.yml
+- type: DomainSecurity
+  url: security/aventon-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
