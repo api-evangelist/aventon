@@ -3,11 +3,9 @@ method: searched
 status: published
 source: https://www.aventon.com/.well-known/ucp
 docs: https://www.aventon.com/llms.txt
-notes: >-
-  Aventon's storefront runs on Shopify, which natively exposes the Universal
-  Commerce Protocol (UCP, https://ucp.dev) for agent-driven commerce. The store
-  advertises a live MCP endpoint via /.well-known/ucp and /llms.txt. Tools are
-  the UCP shopping service surface; discover exact schemas at runtime via the
+notes: Aventon's storefront runs on Shopify, which natively exposes the Universal Commerce Protocol (UCP,
+  https://ucp.dev) for agent-driven commerce. The store advertises a live MCP endpoint via /.well-known/ucp
+  and /llms.txt. Tools are the UCP shopping service surface; discover exact schemas at runtime via the
   MCP tools/list method. Checkout requires contemporaneous human buyer approval.
 server:
   name: aventon-ucp-shopping
@@ -38,3 +36,11 @@ capabilities:
 - dev.ucp.shopping.discount
 - dev.ucp.shopping.fulfillment
 - dev.ucp.shopping.order
+deployment:
+  mode: remote
+  endpoint: https://aventonbikes.myshopify.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
