@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/aventon/integrations
+- https://n8n.io/integrations/aventon/
+- https://composio.dev/toolkits/aventon
+- https://monid.ai/tools/aventon
+checked:
+- https://composio.dev/toolkits/aventon
+- https://monid.ai/tools/aventon
+- https://n8n.io/integrations/aventon/
+- https://zapier.com/apps/aventon/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
